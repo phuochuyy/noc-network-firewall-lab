@@ -1,0 +1,12 @@
+<!-- "Internet" side of the firewall: libvirt NAT to the host's uplink. The firewall WAN gets 10.90.0.2 (DHCP host entry). -->
+<network>
+  <name>noc-wan</name>
+  <forward mode='nat'/>
+  <bridge name='noc-wan' stp='on' delay='0'/>
+  <ip address='10.90.0.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='10.90.0.100' end='10.90.0.199'/>
+      <host mac='52:54:00:90:00:02' name='fw1' ip='10.90.0.2'/>
+    </dhcp>
+  </ip>
+</network>

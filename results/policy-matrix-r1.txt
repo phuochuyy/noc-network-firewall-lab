@@ -1,0 +1,20 @@
+run 2026-11-02 23:06:42
+PASS  expect allow got allow  LAN user  -> DMZ web :80
+PASS  expect block got block  LAN user  -> DMZ ssh :22
+PASS  expect allow got allow  LAN user  -> DMZ ping
+FAIL  expect allow got block  LAN user  -> internet https
+PASS  expect allow got allow  LAN user  -> firewall DNS
+PASS  expect allow got allow  admin     -> firewall GUI (LAN)
+PASS  expect allow got allow  admin     -> DMZ web :80
+PASS  expect block got block  admin     -> DMZ ssh :22 (direct)
+PASS  expect block got block  DMZ server-> LAN user ssh :22
+PASS  expect block got block  DMZ server-> LAN user ping
+PASS  expect block got block  DMZ server-> firewall GUI :443
+PASS  expect allow got allow  DMZ server-> firewall DNS
+PASS  expect allow got allow  DMZ server-> internet https
+PASS  expect block got block  DMZ server-> internet ssh :22
+PASS  expect allow got allow  internet  -> published web WAN:8080
+PASS  expect block got block  internet  -> firewall GUI on WAN
+PASS  expect block got block  internet  -> firewall SSH on WAN
+FAIL  expect block got allow  internet  -> DMZ web :80 (no NAT)
+total: 16 PASS, 2 FAIL

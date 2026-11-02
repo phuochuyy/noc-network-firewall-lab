@@ -1,0 +1,106 @@
+Mon Nov  2 23:15:18 +07 2026
+OPNsense 26.7 (amd64)
+scrub in all fragment reassemble
+block drop in log on ! vtnet2 inet from 10.90.20.0/24 to any
+block drop in log inet from 10.90.20.1 to any
+block drop in log on ! vtnet0 inet from 10.90.10.0/24 to any
+block drop in log inet from 10.90.10.1 to any
+block drop in log on ! vtnet1 inet from 10.90.0.0/24 to any
+block drop in log inet from 10.90.0.2 to any
+block drop in log inet all label "02f4bab031b57d1e30553ce08e0ec131"
+block drop in log inet6 all label "02f4bab031b57d1e30553ce08e0ec131"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type unreach keep state label "7355b5da99f40893221b6c4140de1006"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type toobig keep state label "7355b5da99f40893221b6c4140de1006"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type timex keep state label "7355b5da99f40893221b6c4140de1006"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type paramprob keep state label "7355b5da99f40893221b6c4140de1006"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type neighbrsol keep state label "7355b5da99f40893221b6c4140de1006"
+pass in log quick inet6 proto ipv6-icmp all icmp6-type neighbradv keep state label "7355b5da99f40893221b6c4140de1006"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type echoreq keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type echorep keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type routersol keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type routeradv keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type neighbrsol keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to fe80::/10 icmp6-type neighbradv keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type echoreq keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type echorep keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type routersol keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type routeradv keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type neighbrsol keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass out log quick inet6 proto ipv6-icmp from (self) to ff02::/16 icmp6-type neighbradv keep state label "80f90f0d4c5aba0c28d1c539e1e35766"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to fe80::/10 icmp6-type echoreq keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to fe80::/10 icmp6-type routersol keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to fe80::/10 icmp6-type routeradv keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to fe80::/10 icmp6-type neighbrsol keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to fe80::/10 icmp6-type neighbradv keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to ff02::/16 icmp6-type echoreq keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to ff02::/16 icmp6-type routersol keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to ff02::/16 icmp6-type routeradv keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to ff02::/16 icmp6-type neighbrsol keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from fe80::/10 to ff02::/16 icmp6-type neighbradv keep state label "8fa5de02f1ff8cdd29bedb63b24cc7e0"
+pass in log quick inet6 proto ipv6-icmp from ff02::/16 to fe80::/10 icmp6-type echoreq keep state label "e29b1b607bd6cd916cf6b598c41805d3"
+pass in log quick inet6 proto ipv6-icmp from ff02::/16 to fe80::/10 icmp6-type routersol keep state label "e29b1b607bd6cd916cf6b598c41805d3"
+pass in log quick inet6 proto ipv6-icmp from ff02::/16 to fe80::/10 icmp6-type routeradv keep state label "e29b1b607bd6cd916cf6b598c41805d3"
+pass in log quick inet6 proto ipv6-icmp from ff02::/16 to fe80::/10 icmp6-type neighbrsol keep state label "e29b1b607bd6cd916cf6b598c41805d3"
+pass in log quick inet6 proto ipv6-icmp from ff02::/16 to fe80::/10 icmp6-type neighbradv keep state label "e29b1b607bd6cd916cf6b598c41805d3"
+pass in log quick inet6 proto ipv6-icmp from :: to ff02::/16 icmp6-type echoreq keep state label "b242f2d3f6b4756fa468cfd0daa78cd4"
+pass in log quick inet6 proto ipv6-icmp from :: to ff02::/16 icmp6-type routersol keep state label "b242f2d3f6b4756fa468cfd0daa78cd4"
+pass in log quick inet6 proto ipv6-icmp from :: to ff02::/16 icmp6-type routeradv keep state label "b242f2d3f6b4756fa468cfd0daa78cd4"
+pass in log quick inet6 proto ipv6-icmp from :: to ff02::/16 icmp6-type neighbrsol keep state label "b242f2d3f6b4756fa468cfd0daa78cd4"
+pass in log quick inet6 proto ipv6-icmp from :: to ff02::/16 icmp6-type neighbradv keep state label "b242f2d3f6b4756fa468cfd0daa78cd4"
+block drop in log quick inet proto tcp from any port = 0 to any label "b477ac1c8f5237a59ee416b9d819ce58"
+block drop in log quick inet proto udp from any port = 0 to any label "b477ac1c8f5237a59ee416b9d819ce58"
+block drop in log quick inet6 proto tcp from any port = 0 to any label "b477ac1c8f5237a59ee416b9d819ce58"
+block drop in log quick inet6 proto udp from any port = 0 to any label "b477ac1c8f5237a59ee416b9d819ce58"
+block drop in log quick inet proto tcp from any to any port = 0 label "b454844853f2346167ad77449b79ad8e"
+block drop in log quick inet proto udp from any to any port = 0 label "b454844853f2346167ad77449b79ad8e"
+block drop in log quick inet6 proto tcp from any to any port = 0 label "b454844853f2346167ad77449b79ad8e"
+block drop in log quick inet6 proto udp from any to any port = 0 label "b454844853f2346167ad77449b79ad8e"
+block drop in log quick proto tcp from <sshlockout> to (self) port = ssh label "8b59cf89872747f657c42f9e93dd52e0"
+block drop in log quick proto tcp from <sshlockout> to (self) port = https label "27ad7dee30c19305dc0187bf0e87cd4e"
+block drop in log quick from <virusprot> to any label "add09fc915886757c300419fc2ecc1e6"
+pass in log quick on vtnet1 proto udp from any port = bootps to any port = bootpc keep state label "f994f615e00b8be0042263f86c79913f"
+pass out log quick on vtnet1 proto udp from any port = bootpc to any port = bootps keep state label "5cf7ab808da1fcbca1ddb9ba9b46b669"
+pass in log quick on vtnet0 inet proto udp from any port = bootpc to 255.255.255.255 port = bootps keep state label "56d97e04b8ce723a8524bdda932fe056"
+pass in log quick on vtnet0 proto udp from any port = bootpc to (self) port = bootps keep state label "ac5d6855f1bc6d537c949fd7ce458587"
+pass out log quick on vtnet0 proto udp from (self) port = bootps to any port = bootpc keep state label "4071f735e7cf9dcad8b9305970c17911"
+pass in log quick on vtnet0 inet6 proto udp from fe80::/10 to fe80::/10 port = dhcpv6-client keep state label "600d48bc4d9a060084eea027fa54cfdc"
+pass in log quick on vtnet0 inet6 proto udp from fe80::/10 to ff02::/16 port = dhcpv6-client keep state label "600d48bc4d9a060084eea027fa54cfdc"
+pass in log quick on vtnet0 inet6 proto udp from fe80::/10 to ff02::/16 port = dhcpv6-server keep state label "0e8cdb22b7059277a934591353ae2214"
+pass in log quick on vtnet0 inet6 proto udp from ff02::/16 to fe80::/10 port = dhcpv6-server keep state label "06e2b143a84862bc38acb6bac5090d14"
+pass in log quick on vtnet0 inet6 proto udp from fe80::/10 to (self) port = dhcpv6-client keep state label "04bd2bc40ab1391b8ce89ff0fafd1e67"
+pass out log quick on vtnet0 inet6 proto udp from (self) port = dhcpv6-server to fe80::/10 keep state label "0926e497e454bfe83d715b0d85fdfe3a"
+block drop in log quick on vtnet1 inet from <bogons> to any label "b7cd97a164650b538506fb551a0369e7"
+block drop in log quick on vtnet1 inet6 from <bogonsv6> to any label "f140a48ddade668b9d6f5259669a1d5c"
+pass out log all flags S/SA keep state allow-opts label "fae559338f65e11c53669fc3642c93c2"
+pass in log quick on vtnet0 proto tcp from any to (self) port = ssh flags S/SA keep state label "60533d555322b9f6a009f71c1c471480"
+pass in log quick on vtnet0 proto tcp from any to (self) port = http flags S/SA keep state label "01e83daa25c4483dee217a7ecd7c9a88"
+pass in log quick on vtnet0 proto tcp from any to (self) port = https flags S/SA keep state label "3345e04986bd5750d23b77cbbb21271f"
+pass out log route-to (vtnet1 10.90.0.1) inet from (vtnet1) to ! (vtnet1:network) flags S/SA keep state allow-opts label "ad6b59e148dbcc86feb7c2730ddbba44"
+pass in quick on vtnet0 inet proto tcp from (vtnet0:network) to (vtnet2:network) port = http flags S/SA keep state label "3675ad4b-3237-40aa-9cab-fbda07bddc22"
+pass in quick on vtnet0 inet proto tcp from (vtnet0:network) to (vtnet2:network) port = https flags S/SA keep state label "3675ad4b-3237-40aa-9cab-fbda07bddc22"
+pass in quick on vtnet0 inet proto icmp from (vtnet0:network) to any keep state label "19239e87-ba34-4e33-9a17-6769291ccf3a"
+block drop in log quick on vtnet0 inet from (vtnet0:network) to (vtnet2:network) label "44d970b9-b762-4d9d-97e7-d1344a26ef76"
+pass in quick on vtnet0 inet from (vtnet0:network) to any flags S/SA keep state label "a6196e91-d712-4aaf-b202-5b6af29e2278"
+pass in quick on vtnet2 inet proto tcp from (vtnet2:network) to (self) port = domain flags S/SA keep state label "a63da764-3af6-4024-9aa2-17b1b1b21a69"
+pass in quick on vtnet2 inet proto udp from (vtnet2:network) to (self) port = domain keep state label "a63da764-3af6-4024-9aa2-17b1b1b21a69"
+pass in quick on vtnet2 inet proto udp from (vtnet2:network) to (self) port = ntp keep state label "46092f95-8148-4b28-9062-0b33bd011a46"
+block drop in log quick on vtnet2 inet from (vtnet2:network) to (vtnet0:network) label "cce4f9b0-2ce2-47a5-ae7d-31cce4d87fb3"
+block drop in log quick on vtnet2 inet from (vtnet2:network) to (self) label "beac953c-8868-40b0-b23a-1aae7e376550"
+pass in quick on vtnet2 inet proto tcp from (vtnet2:network) to any port = http flags S/SA keep state label "a00865be-d4ec-45e8-bea8-15827064e472"
+pass in quick on vtnet2 inet proto tcp from (vtnet2:network) to any port = https flags S/SA keep state label "a00865be-d4ec-45e8-bea8-15827064e472"
+pass in quick on vtnet2 inet proto icmp from (vtnet2:network) to any keep state label "c139ffe2-4263-4c33-8f59-cd3e6d2b6dc5"
+
+no nat proto carp all
+nat on vtnet1 inet from (vtnet2:network) to any port = isakmp -> (vtnet1:0) static-port
+nat on vtnet1 inet from (vtnet0:network) to any port = isakmp -> (vtnet1:0) static-port
+nat on vtnet1 inet from (lo0:network) to any port = isakmp -> (vtnet1:0) static-port
+nat on vtnet1 inet from 127.0.0.0/8 to any port = isakmp -> (vtnet1:0) static-port
+nat on vtnet1 inet from (vtnet2:network) to any -> (vtnet1:0) port 1024:65535
+nat on vtnet1 inet from (vtnet0:network) to any -> (vtnet1:0) port 1024:65535
+nat on vtnet1 inet from (lo0:network) to any -> (vtnet1:0) port 1024:65535
+nat on vtnet1 inet from 127.0.0.0/8 to any -> (vtnet1:0) port 1024:65535
+no rdr proto carp all
+no rdr on vtnet0 proto tcp from any to (vtnet0) port = ssh
+no rdr on vtnet0 proto tcp from any to (vtnet0) port = http
+no rdr on vtnet0 proto tcp from any to (vtnet0) port = https
+rdr pass on vtnet1 inet proto tcp from any to (vtnet1) port = http-alt -> 10.90.20.10 port 80

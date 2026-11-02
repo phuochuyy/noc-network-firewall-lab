@@ -1,0 +1,4 @@
+rc-update add nginx default
+mkdir -p /var/lib/nginx/html && echo "dmz1 web: published through fw1" > /var/lib/nginx/html/index.html
+printf 'server {\n  listen 80 default_server;\n  root /var/lib/nginx/html;\n  location / { try_files $uri $uri/ =404; }\n}\n' > /etc/nginx/http.d/default.conf
+rc-service nginx restart
