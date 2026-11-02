@@ -1,0 +1,3 @@
+port-scan: fault 2026-11-03 00:05:27 | port scan alert: problem 2026-11-03 00:06:10 (+42.5 s) | restored 2026-11-03 00:06:12 | resolved 2026-11-03 00:07:10 (+57.0 s)
+  nmap: Host: 10.90.0.2 (fw1)	Status: Up
+Host: 10.90.0.2 (fw1)	Ports: 	Ignored State: filtered (1000)
