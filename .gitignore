@@ -1,0 +1,13 @@
+# credentials and key material: local only
+lab.env
+*.env
+!lab.env.example
+*.key
+wg-*.conf
+# downloaded images and generated disks
+*.img
+*.img.bz2
+*.qcow2
+*.iso
+__pycache__/
+INTERVIEW.md
