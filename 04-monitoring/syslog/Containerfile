@@ -1,0 +1,6 @@
+# Remote syslog receiver for the lab (rootless Podman on the KVM host): UDP 5514, one file per sending host.
+FROM docker.io/library/alpine:3.24.3
+RUN apk add --no-cache rsyslog
+COPY rsyslog.conf /etc/rsyslog.conf
+EXPOSE 5514/udp
+CMD ["rsyslogd", "-n", "-f", "/etc/rsyslog.conf"]

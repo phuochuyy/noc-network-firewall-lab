@@ -27,6 +27,8 @@ ALIASES = [
 ]
 # (sequence, interface, action, protocol, source, destination, port, log, description)
 RULES = [
+    (101, "lan", "pass", "UDP", "10.90.10.254", "(self)", "161", "0", "monitoring server SNMP to the firewall"),
+    (102, "lan", "block", "UDP", "lan", "(self)", "161", "1", "LAN users: no SNMP to the firewall"),
     (110, "lan", "pass", "TCP", "lan", "opt1", "web_ports", "0", "LAN to DMZ web (80, 443)"),
     (120, "lan", "pass", "ICMP", "lan", "any", "", "0", "LAN ping (troubleshooting)"),
     (130, "lan", "block", "any", "lan", "opt1", "", "1", "LAN to DMZ: everything else blocked"),
