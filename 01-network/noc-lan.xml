@@ -1,0 +1,11 @@
+<!-- Internal LAN behind the firewall (isolated: no route out except through fw1). The host sits here as the admin
+     workstation (10.90.10.254) and the monitoring server. 192.168.1.254 only reaches the factory LAN address of a
+     new OPNsense (192.168.1.1) during bootstrap. DHCP is served by the firewall, not by libvirt. -->
+<network>
+  <name>noc-lan</name>
+  <bridge name='noc-lan' stp='on' delay='0'/>
+  <ip address='10.90.10.254' netmask='255.255.255.0'/>
+  <ip address='192.168.1.254' netmask='255.255.255.0'/>
+  <!-- the host reaches the DMZ only through the firewall (so the LAN -> DMZ policy applies to it too) -->
+  <route address='10.90.20.0' prefix='24' gateway='10.90.10.1'/>
+</network>
