@@ -1,0 +1,2 @@
+OPNsense 26.7 (amd64)
+15.1-RELEASE-p1
